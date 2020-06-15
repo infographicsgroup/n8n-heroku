@@ -1,5 +1,22 @@
 # n8n-heroku
 
+# A few things I had to do to make it work:
+
+- when n8n encrypts credentials it uses an EncryptionKey which is not persisted on heroku on dyno restarts. To solve
+this we need to set a env var on heroku `N8N_ENCRYPTION_KEY` and give it a long random value (it's a secret key).
+See https://community.n8n.io/t/credentials-error/181/3
+
+- I had to set `WEBHOOK_TUNNEL_URL` as an env (value: `https://n8n-sapera.herokuapp.com/`) var to fix
+ an appended port on the webhook urls. By setting this the N8N_PROTOCOL might not be necessary but doesn't hurt either
+
+- heroku dynos run on https by default. To make sure n8n know about this we have to set an env var on heroku:
+`N8N_PROTOCOL` with value `https`
+
+- webhook URLs will be created for `localhost` unless we set `N8N_HOST` to the heroku app name, e.g. `n8n-sapera.herokuapp.com`
+See https://github.com/sarveshwarge/n8n-heroku/issues/13, maybe this is net needed if `WEBHOOK_TUNNEL_URL` is set
+
+-- original Readme
+
 ![Docker](https://github.com/sarveshwarge/n8n-heroku/workflows/Docker/badge.svg) ![Test Heroku](https://github.com/sarveshwarge/n8n-heroku/workflows/Test%20Heroku/badge.svg)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sarveshwarge/n8n-heroku)
