@@ -8,6 +8,7 @@ See https://community.n8n.io/t/credentials-error/181/3
 
 - I had to set `WEBHOOK_TUNNEL_URL` as an env (value: `https://n8n-sapera.herokuapp.com/`) var to fix
  an appended port on the webhook urls. By setting this the N8N_PROTOCOL might not be necessary but doesn't hurt either
+See: https://docs.n8n.io/reference/configuration.html#webhook-url
 
 - heroku dynos run on https by default. To make sure n8n know about this we have to set an env var on heroku:
 `N8N_PROTOCOL` with value `https`
@@ -15,7 +16,9 @@ See https://community.n8n.io/t/credentials-error/181/3
 - webhook URLs will be created for `localhost` unless we set `N8N_HOST` to the heroku app name, e.g. `n8n-sapera.herokuapp.com`
 See https://github.com/sarveshwarge/n8n-heroku/issues/13, maybe this is net needed if `WEBHOOK_TUNNEL_URL` is set
 
--- original Readme
+Last but not least, to make sure n8n is running in `production` mode we have to set `NODE_ENV = production` in heroku.
+
+# original Readme
 
 ![Docker](https://github.com/sarveshwarge/n8n-heroku/workflows/Docker/badge.svg) ![Test Heroku](https://github.com/sarveshwarge/n8n-heroku/workflows/Test%20Heroku/badge.svg)
 
