@@ -22,7 +22,7 @@ Last but not least, to make sure n8n is running in `production` mode we have to 
 
 ![Docker](https://github.com/sarveshwarge/n8n-heroku/workflows/Docker/badge.svg) ![Test Heroku](https://github.com/sarveshwarge/n8n-heroku/workflows/Test%20Heroku/badge.svg)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sarveshwarge/n8n-heroku)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/infographicsgroup/n8n-heroku)
 
 New method, just click, configure and get your n8n running.
 Also, now set app stack to container and simply connect this Github repo and deploy, heroku uses default configuration from app.json
