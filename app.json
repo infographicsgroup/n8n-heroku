@@ -1,5 +1,5 @@
 {
-    "name": "n8n",
+    "name": "n8n-heroku-sapera",
     "description": "deploy n8n to heroku without any hassle",
     "keywords": [
       "n8n",
@@ -7,7 +7,7 @@
       "automation"
     ],
     "website": "https://n8n.io",
-    "repository": "https://github.com/sarveshwarge/n8n-heroku",
+    "repository": "https://github.com/infographicsgroup/n8n-heroku",
     "logo": "https://raw.githubusercontent.com/n8n-io/n8n/master/docs/images/n8n-logo.png",
     "success_url": "/",
     "stack": "container",
@@ -26,7 +26,30 @@
       },
       "N8N_BASIC_AUTH_PASSWORD": {
         "description": "Basic Authentication Password to secure n8n.",
-        "value": "pass"
+        "value": "REPLACE_ME"
+      },
+      "N8N_HOST": {
+        "description": "the name of your APP. Use the App name on this screen",
+        "value": "REPLACE_ME"
+      },
+      "WEBHOOK_TUNNEL_URL": {
+        "description": "to correctly use webhooks, replace YOUR_APP_NAME below",
+        "value": "REPLACE_ME"
+      },
+      "VUE_APP_URL_BASE_API": {
+        "description": "communication between the front end and api, replace YOUR_APP_NAME below ",
+        "value": "REPLACE_ME"
+      },
+      "N8N_ENCRYPTION_KEY": {
+        "description": "Specify a random string. When Heroku free plans timeout, the encryption key can cause issues with credentials. Keep this randomstring or use another random string ",
+        "value": "REPLACE_ME"
+      },
+      "NODE_ENV": {
+        "description": "Otherwise app will run in development mode",
+        "value": "production"
+      },
+      "DATABASE_URL": {
+        "value": "postgres://ziywihpofhbjbp:03917e1f2216fa7758893b89370a93a83423ba6d56b648d2d79d8406532ebd25@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d7aglsnro719ni"
       }
     },
     "formation": {
@@ -47,4 +70,3 @@
       }
     ]
   }
-  
